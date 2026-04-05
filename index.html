@@ -1,536 +1,81 @@
  <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Site Control Hub</title>
+  <title>Site Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    :root {
-      --bg: #f5f7fa;
-      --surface: #ffffff;
-      --surface-2: #f0f4f8;
-      --text: #14202b;
-      --muted: #617181;
-      --line: #dce4ec;
-      --shadow: 0 14px 34px rgba(14, 30, 47, 0.08);
-      --radius: 18px;
-      --green: #177245;
-      --green-bg: #e8f6ee;
-      --amber: #8a5a00;
-      --amber-bg: #fff4dd;
-      --red: #b42318;
-      --red-bg: #feeceb;
-      --grey: #6b7280;
-      --grey-bg: #eef2f6;
-      --dark: #14202b;
-    }
-
-    * { box-sizing: border-box; }
-
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    .wrap {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .hero {
-      background: linear-gradient(180deg, #ffffff 0%, #eef3f8 100%);
-      border-bottom: 1px solid var(--line);
-      padding: 56px 0 34px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: #eaf2ff;
-      color: #245ea8;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
+      font-family: Arial;
+      background: #f4f6f8;
+      padding: 20px;
     }
 
     h1 {
-      margin: 0 0 14px;
-      font-size: 42px;
-      line-height: 1.04;
-      max-width: 860px;
-      letter-spacing: -1px;
+      margin-bottom: 10px;
     }
 
-    .hero-copy {
-      margin: 0;
-      max-width: 770px;
-      color: var(--muted);
-      font-size: 18px;
+    .grid {
+      display: grid;
+      gap: 15px;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 28px;
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
     }
 
     .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 14px 18px;
-      border-radius: 12px;
-      font-weight: bold;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--dark);
-      color: #fff;
-    }
-
-    .btn-secondary {
-      background: #fff;
-      color: var(--dark);
-      border: 1px solid var(--line);
-    }
-
-    .kpi-bar {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .kpi {
-      background: rgba(255,255,255,0.82);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .kpi-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--muted);
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-    .kpi-value {
-      font-size: 28px;
-      font-weight: bold;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .kpi-note {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    section {
-      padding: 44px 0;
-    }
-
-    h2 {
-      margin: 0 0 8px;
-      font-size: 32px;
-    }
-
-    .lead {
-      margin: 0 0 22px;
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .top-links {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .tool-card,
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .tool-card {
-      padding: 22px;
-    }
-
-    .tool-card h3,
-    .project-card h3 {
-      margin: 0 0 8px;
-      font-size: 22px;
-    }
-
-    .tool-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .tool-card .btn {
-      margin-top: 18px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .tool-badge {
-      display: inline-block;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: var(--surface-2);
-      font-size: 12px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 14px;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .project-card {
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-top {
-      padding: 22px 22px 18px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .project-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 11px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      white-space: nowrap;
-    }
-
-    .status-on-track { background: var(--green-bg); color: var(--green); }
-    .status-at-risk, .status-monitor { background: var(--amber-bg); color: var(--amber); }
-    .status-behind, .status-delayed, .status-critical { background: var(--red-bg); color: var(--red); }
-    .status-unknown { background: var(--grey-bg); color: var(--grey); }
-
-    .project-top p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .project-metrics {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .metric {
-      background: var(--surface-2);
-      border-radius: 14px;
-      padding: 12px;
-    }
-
-    .metric-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.9px;
-      color: var(--muted);
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-
-    .metric-value {
-      font-size: 14px;
-      font-weight: bold;
-      color: var(--text);
-    }
-
-    .project-body {
-      padding: 18px 22px 22px;
-      display: grid;
-      gap: 12px;
-      flex: 1;
-    }
-
-    .focus-box {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 14px;
-    }
-
-    .focus-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.9px;
-      color: var(--muted);
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-
-    .focus-value {
-      font-size: 15px;
-      color: var(--text);
-    }
-
-    .project-links {
-      display: grid;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .project-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 13px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: var(--surface-2);
-      text-decoration: none;
-      color: var(--text);
-      font-weight: bold;
-    }
-
-    .project-link small {
       display: block;
-      color: var(--muted);
-      font-weight: normal;
-      margin-top: 2px;
+      margin-top: 10px;
+      padding: 12px;
+      text-align: center;
+      text-decoration: none;
+      background: #111;
+      color: #fff;
+      border-radius: 8px;
     }
 
-    @media (max-width: 1020px) {
-      h1 { font-size: 36px; }
-      .kpi-bar, .top-links, .project-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 720px) {
-      .hero { padding: 42px 0 26px; }
-      h1 { font-size: 30px; }
-      .hero-copy { font-size: 16px; }
-      h2 { font-size: 28px; }
-      .project-metrics { grid-template-columns: 1fr; }
+    @media(max-width:800px){
+      .grid-3 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <div class="eyebrow">Site Control Hub</div>
-      <h1>One clean front door into snapshots, induction, sign in, sign out and project access.</h1>
-      <p class="hero-copy">Built for teams that want clear reporting, simple site access and fast movement between live projects.</p>
 
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#projects">Open Projects</a>
-        <a class="btn btn-secondary" href="#site-tools">Open Main Tools</a>
-      </div>
+<h1>Site Hub</h1>
+<p>Induction and Sign In / Out access</p>
 
-      <div class="kpi-bar">
-        <div class="kpi">
-          <div class="kpi-label">Live Projects</div>
-          <div class="kpi-value" id="kpi-projects">0</div>
-          <div class="kpi-note">Projects currently listed</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-label">At Risk</div>
-          <div class="kpi-value" id="kpi-risk">0</div>
-          <div class="kpi-note">Monitor closely this week</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-label">Behind</div>
-          <div class="kpi-value" id="kpi-behind">0</div>
-          <div class="kpi-note">Jobs needing action now</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-label">Blind Spots</div>
-          <div class="kpi-value" id="kpi-unknown">0</div>
-          <div class="kpi-note">Weak data or unclear position</div>
-        </div>
-      </div>
+<div class="grid grid-3" id="projects"></div>
+
+<script src="data.js"></script>
+
+<script>
+const container = document.getElementById("projects");
+
+if (container && typeof projects !== "undefined") {
+  container.innerHTML = projects.map(p => `
+    <div class="card">
+      <h3>${p.name}</h3>
+
+      <a class="btn" href="${p.induction}" target="_blank">
+        Site Induction
+      </a>
+
+      <a class="btn" href="${p.signin}" target="_blank">
+        Site Sign In / Out
+      </a>
     </div>
-  </header>
+  `).join("");
+}
+</script>
 
-  <section id="site-tools">
-    <div class="wrap">
-      <h2>Main site tools</h2>
-      <p class="lead">These are the main entry points for office, supervisors, workers and visitors.</p>
-
-      <div class="top-links">
-        <div class="tool-card">
-          <div class="tool-badge">Reporting</div>
-          <h3>Weekly Snapshot</h3>
-          <p>Open the main reporting page to see what is on track, what is drifting and where action is needed.</p>
-          <a class="btn btn-primary" href="https://example.com" target="_blank" rel="noopener">Open Snapshot</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-badge">Compliance</div>
-          <h3>Site Induction</h3>
-          <p>Send workers and visitors through one clean induction flow before they enter site or start work.</p>
-          <a class="btn btn-primary" href="https://example.com" target="_blank" rel="noopener">Start Induction</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-badge">Attendance</div>
-          <h3>Site Sign In</h3>
-          <p>Fast sign in access for headcount, movement records and daily site visibility.</p>
-          <a class="btn btn-primary" href="https://example.com" target="_blank" rel="noopener">Open Sign In</a>
-        </div>
-
-        <div class="tool-card">
-          <div class="tool-badge">Attendance</div>
-          <h3>Site Sign Out</h3>
-          <p>Quick sign out access for labour tracking and site movement records.</p>
-          <a class="btn btn-primary" href="https://example.com" target="_blank" rel="noopener">Open Sign Out</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="wrap">
-      <h2>Projects</h2>
-      <p class="lead">Each card holds the weekly position plus direct links into that project’s snapshot, induction, sign in and sign out page.</p>
-      <div class="project-grid" id="projects-container"></div>
-    </div>
-  </section>
-
-  <script src="data.js"></script>
-  <script>
-    const container = document.getElementById('projects-container');
-
-    function statusClass(status) {
-      const s = (status || '').toLowerCase();
-      if (s.includes('behind')) return 'status-behind';
-      if (s.includes('delay')) return 'status-delayed';
-      if (s.includes('critical')) return 'status-critical';
-      if (s.includes('risk')) return 'status-at-risk';
-      if (s.includes('monitor')) return 'status-monitor';
-      if (s.includes('track')) return 'status-on-track';
-      if (s.includes('unknown')) return 'status-unknown';
-      return 'status-unknown';
-    }
-
-    function counts(projects) {
-      let risk = 0;
-      let behind = 0;
-      let unknown = 0;
-
-      projects.forEach((p) => {
-        const s = (p.status || '').toLowerCase();
-        if (s.includes('behind') || s.includes('delay') || s.includes('critical')) behind += 1;
-        else if (s.includes('risk') || s.includes('monitor')) risk += 1;
-        else if (s.includes('unknown')) unknown += 1;
-      });
-
-      return { total: projects.length, risk, behind, unknown };
-    }
-
-    if (container && Array.isArray(projects)) {
-      const kpis = counts(projects);
-      document.getElementById('kpi-projects').textContent = kpis.total;
-      document.getElementById('kpi-risk').textContent = kpis.risk;
-      document.getElementById('kpi-behind').textContent = kpis.behind;
-      document.getElementById('kpi-unknown').textContent = kpis.unknown;
-
-      container.innerHTML = projects.map((p) => `
-        <article class="project-card">
-          <div class="project-top">
-            <div class="project-head">
-              <h3>${p.name || 'Project'}</h3>
-              <span class="status-badge ${statusClass(p.status)}">${p.status || 'Unknown'}</span>
-            </div>
-            <p>${p.summary || 'Project summary not added yet.'}</p>
-
-            <div class="project-metrics">
-              <div class="metric">
-                <div class="metric-label">Holding Up</div>
-                <div class="metric-value">${p.holding || 'Not set'}</div>
-              </div>
-              <div class="metric">
-                <div class="metric-label">Labour</div>
-                <div class="metric-value">${p.labour || 'Not set'}</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <div class="focus-box">
-              <div class="focus-label">Next Action</div>
-              <div class="focus-value">${p.next || 'No next action set'}</div>
-            </div>
-
-            <div class="project-links">
-              <a class="project-link" href="${p.snapshot || '#'}" target="_blank" rel="noopener">
-                <div>
-                  Snapshot
-                  <small>Open project reporting page</small>
-                </div>
-                <span>↗</span>
-              </a>
-
-              <a class="project-link" href="${p.induction || '#'}" target="_blank" rel="noopener">
-                <div>
-                  Induction
-                  <small>Open project induction page</small>
-                </div>
-                <span>↗</span>
-              </a>
-
-              <a class="project-link" href="${p.signin || '#'}" target="_blank" rel="noopener">
-                <div>
-                  Site Sign In
-                  <small>Open project sign in form</small>
-                </div>
-                <span>↗</span>
-              </a>
-
-              <a class="project-link" href="${p.signout || '#'}" target="_blank" rel="noopener">
-                <div>
-                  Site Sign Out
-                  <small>Open project sign out form</small>
-                </div>
-                <span>↗</span>
-              </a>
-            </div>
-          </div>
-        </article>
-      `).join('');
-    } else {
-      container.innerHTML = '<div class="tool-card"><h3>No project data loading</h3><p>Check that data.js exists and starts with const projects = [ ... ]</p></div>';
-    }
-  </script>
 </body>
 </html>
