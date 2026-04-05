@@ -1,4 +1,5 @@
- <!DOCTYPE html><html lang="en">
+ <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,491 +23,412 @@
       --grey: #6b7280;
       --grey-bg: #eef2f6;
       --dark: #14202b;
-      --blue: #245ea8;
-      --blue-bg: #eaf2ff;
-    }* { box-sizing: border-box; }
+    }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.5;
-}
+    * { box-sizing: border-box; }
 
-.wrap {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
 
-.hero {
-  background: linear-gradient(180deg, #ffffff 0%, #eef3f8 100%);
-  border-bottom: 1px solid var(--line);
-  padding: 56px 0 34px;
-}
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-.eyebrow {
-  display: inline-block;
-  padding: 7px 11px;
-  border-radius: 999px;
-  background: var(--blue-bg);
-  color: var(--blue);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
+    .hero {
+      background: linear-gradient(180deg, #ffffff 0%, #eef3f8 100%);
+      border-bottom: 1px solid var(--line);
+      padding: 56px 0 34px;
+    }
 
-h1 {
-  margin: 0 0 14px;
-  font-size: 48px;
-  line-height: 1.04;
-  max-width: 860px;
-  letter-spacing: -1px;
-}
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #eaf2ff;
+      color: #245ea8;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
 
-.hero-copy {
-  margin: 0;
-  max-width: 770px;
-  color: var(--muted);
-  font-size: 19px;
-}
+    h1 {
+      margin: 0 0 14px;
+      font-size: 42px;
+      line-height: 1.04;
+      max-width: 860px;
+      letter-spacing: -1px;
+    }
 
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 28px;
-}
+    .hero-copy {
+      margin: 0;
+      max-width: 770px;
+      color: var(--muted);
+      font-size: 18px;
+    }
 
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  padding: 14px 18px;
-  border-radius: 12px;
-  font-weight: bold;
-  transition: 0.2s ease;
-}
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
 
-.btn-primary {
-  background: var(--dark);
-  color: #fff;
-}
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
 
-.btn-secondary {
-  background: #fff;
-  color: var(--dark);
-  border: 1px solid var(--line);
-}
+    .btn-primary {
+      background: var(--dark);
+      color: #fff;
+    }
 
-.btn:hover { transform: translateY(-1px); }
+    .btn-secondary {
+      background: #fff;
+      color: var(--dark);
+      border: 1px solid var(--line);
+    }
 
-.kpi-bar {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-}
+    .kpi-bar {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
 
-.kpi {
-  background: rgba(255,255,255,0.82);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 18px;
-  box-shadow: var(--shadow);
-}
+    .kpi {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
 
-.kpi-label {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--muted);
-  margin-bottom: 8px;
-  font-weight: bold;
-}
+    .kpi-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
 
-.kpi-value {
-  font-size: 28px;
-  font-weight: bold;
-  line-height: 1;
-  margin-bottom: 6px;
-}
+    .kpi-value {
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
 
-.kpi-note {
-  font-size: 14px;
-  color: var(--muted);
-}
+    .kpi-note {
+      font-size: 14px;
+      color: var(--muted);
+    }
 
-section {
-  padding: 44px 0;
-}
+    section {
+      padding: 44px 0;
+    }
 
-.section-head {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 22px;
-}
+    h2 {
+      margin: 0 0 8px;
+      font-size: 32px;
+    }
 
-h2 {
-  margin: 0 0 8px;
-  font-size: 32px;
-  letter-spacing: -0.5px;
-}
+    .lead {
+      margin: 0 0 22px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 17px;
+    }
 
-.lead {
-  margin: 0;
-  max-width: 760px;
-  color: var(--muted);
-  font-size: 17px;
-}
+    .top-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
 
-.top-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
+    .tool-card,
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
 
-.tool-card,
-.project-card,
-.note-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
+    .tool-card {
+      padding: 22px;
+    }
 
-.tool-card {
-  padding: 22px;
-}
+    .tool-card h3,
+    .project-card h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
 
-.tool-badge {
-  display: inline-block;
-  padding: 7px 10px;
-  border-radius: 999px;
-  background: var(--surface-2);
-  color: var(--text);
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 14px;
-}
+    .tool-card p {
+      margin: 0;
+      color: var(--muted);
+    }
 
-.tool-card h3,
-.project-card h3,
-.note-card h3 {
-  margin: 0 0 8px;
-  font-size: 22px;
-}
+    .tool-card .btn {
+      margin-top: 18px;
+      width: 100%;
+      text-align: center;
+    }
 
-.tool-card p,
-.project-top p,
-.note-card p {
-  margin: 0;
-  color: var(--muted);
-}
+    .tool-badge {
+      display: inline-block;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
 
-.tool-card .btn {
-  margin-top: 18px;
-  width: 100%;
-  text-align: center;
-}
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
+    .project-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
 
-.project-card {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
+    .project-top {
+      padding: 22px 22px 18px;
+      border-bottom: 1px solid var(--line);
+    }
 
-.project-top {
-  padding: 22px 22px 18px;
-  border-bottom: 1px solid var(--line);
-}
+    .project-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
 
-.project-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 12px;
-}
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      white-space: nowrap;
+    }
 
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 11px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  white-space: nowrap;
-}
+    .status-on-track { background: var(--green-bg); color: var(--green); }
+    .status-at-risk, .status-monitor { background: var(--amber-bg); color: var(--amber); }
+    .status-behind, .status-delayed, .status-critical { background: var(--red-bg); color: var(--red); }
+    .status-unknown { background: var(--grey-bg); color: var(--grey); }
 
-.status-on-track {
-  background: var(--green-bg);
-  color: var(--green);
-}
+    .project-top p {
+      margin: 0;
+      color: var(--muted);
+    }
 
-.status-at-risk,
-.status-monitor {
-  background: var(--amber-bg);
-  color: var(--amber);
-}
+    .project-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
 
-.status-behind,
-.status-delayed,
-.status-critical {
-  background: var(--red-bg);
-  color: var(--red);
-}
+    .metric {
+      background: var(--surface-2);
+      border-radius: 14px;
+      padding: 12px;
+    }
 
-.status-unknown {
-  background: var(--grey-bg);
-  color: var(--grey);
-}
+    .metric-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      color: var(--muted);
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
 
-.project-metrics {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 16px;
-}
+    .metric-value {
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--text);
+    }
 
-.metric {
-  background: var(--surface-2);
-  border-radius: 14px;
-  padding: 12px;
-}
+    .project-body {
+      padding: 18px 22px 22px;
+      display: grid;
+      gap: 12px;
+      flex: 1;
+    }
 
-.metric-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.9px;
-  color: var(--muted);
-  font-weight: bold;
-  margin-bottom: 6px;
-}
+    .focus-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+    }
 
-.metric-value {
-  font-size: 14px;
-  font-weight: bold;
-  color: var(--text);
-}
+    .focus-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      color: var(--muted);
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
 
-.project-body {
-  padding: 18px 22px 22px;
-  display: grid;
-  gap: 12px;
-  flex: 1;
-}
+    .focus-value {
+      font-size: 15px;
+      color: var(--text);
+    }
 
-.focus-box {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 14px;
-}
+    .project-links {
+      display: grid;
+      gap: 10px;
+      margin-top: 4px;
+    }
 
-.focus-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.9px;
-  color: var(--muted);
-  font-weight: bold;
-  margin-bottom: 6px;
-}
+    .project-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 13px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+    }
 
-.focus-value {
-  font-size: 15px;
-  color: var(--text);
-}
+    .project-link small {
+      display: block;
+      color: var(--muted);
+      font-weight: normal;
+      margin-top: 2px;
+    }
 
-.project-links {
-  display: grid;
-  gap: 10px;
-  margin-top: 4px;
-}
+    @media (max-width: 1020px) {
+      h1 { font-size: 36px; }
+      .kpi-bar, .top-links, .project-grid { grid-template-columns: 1fr; }
+    }
 
-.project-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 13px 14px;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: var(--surface-2);
-  text-decoration: none;
-  color: var(--text);
-  font-weight: bold;
-}
-
-.project-link small {
-  display: block;
-  color: var(--muted);
-  font-weight: normal;
-  margin-top: 2px;
-}
-
-.project-link:hover { background: #e8eef5; }
-
-.bottom-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 18px;
-}
-
-.note-card {
-  padding: 22px;
-}
-
-.steps {
-  display: grid;
-  gap: 12px;
-  margin-top: 14px;
-}
-
-.step {
-  background: var(--surface-2);
-  border-radius: 14px;
-  padding: 14px;
-  font-size: 15px;
-  color: var(--text);
-}
-
-.footer-note {
-  margin-top: 14px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-@media (max-width: 1020px) {
-  h1 { font-size: 38px; }
-  .kpi-bar,
-  .top-links,
-  .project-grid,
-  .bottom-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 720px) {
-  .hero { padding: 42px 0 26px; }
-  h1 { font-size: 32px; }
-  .hero-copy { font-size: 17px; }
-  h2 { font-size: 28px; }
-  .project-metrics { grid-template-columns: 1fr; }
-  .section-head { display: block; }
-}
-
+    @media (max-width: 720px) {
+      .hero { padding: 42px 0 26px; }
+      h1 { font-size: 30px; }
+      .hero-copy { font-size: 16px; }
+      h2 { font-size: 28px; }
+      .project-metrics { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="wrap">
       <div class="eyebrow">Site Control Hub</div>
-      <h1>One clean front door into snapshots, induction, sign in and project access.</h1>
-      <p class="hero-copy">Built for teams that want clear reporting, simple site access and fast movement between live projects without digging through messages, folders or scattered links.</p><div class="hero-actions">
-    <a class="btn btn-primary" href="#projects">Open Projects</a>
-    <a class="btn btn-secondary" href="#site-tools">Open Main Tools</a>
-  </div>
+      <h1>One clean front door into snapshots, induction, sign in, sign out and project access.</h1>
+      <p class="hero-copy">Built for teams that want clear reporting, simple site access and fast movement between live projects.</p>
 
-  <div class="kpi-bar">
-    <div class="kpi">
-      <div class="kpi-label">Live Projects</div>
-      <div class="kpi-value" id="kpi-projects">0</div>
-      <div class="kpi-note">Projects currently listed</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">At Risk</div>
-      <div class="kpi-value" id="kpi-risk">0</div>
-      <div class="kpi-note">Monitor closely this week</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">Behind</div>
-      <div class="kpi-value" id="kpi-behind">0</div>
-      <div class="kpi-note">Jobs needing action now</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">Blind Spots</div>
-      <div class="kpi-value" id="kpi-unknown">0</div>
-      <div class="kpi-note">Weak data or unclear position</div>
-    </div>
-  </div>
-</div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">Open Projects</a>
+        <a class="btn btn-secondary" href="#site-tools">Open Main Tools</a>
+      </div>
 
-  </header>  <section id="site-tools">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <h2>Main site tools</h2>
-          <p class="lead">Keep the top level simple. These are the main entry points for office, supervisors, workers and visitors.</p>
+      <div class="kpi-bar">
+        <div class="kpi">
+          <div class="kpi-label">Live Projects</div>
+          <div class="kpi-value" id="kpi-projects">0</div>
+          <div class="kpi-note">Projects currently listed</div>
         </div>
-      </div><div class="top-links">
-    <div class="tool-card">
-      <div class="tool-badge">Reporting</div>
-      <h3>Weekly Snapshot</h3>
-      <p>Open the main reporting page to see what is on track, what is drifting and where action is needed.</p>
-      <a class="btn btn-primary" href="https://your-snapshot-link.com" target="_blank">Open Snapshot</a>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-badge">Compliance</div>
-      <h3>Site Induction</h3>
-      <p>Send workers and visitors through one clean induction flow before they enter site or start work.</p>
-      <a class="btn btn-primary" href="https://your-induction-link.com" target="_blank">Start Induction</a>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-badge">Attendance</div>
-      <h3>Site Sign In</h3>
-      <p>Fast sign in and sign out access for headcount, movement records and daily site visibility.</p>
-      <a class="btn btn-primary" href="https://your-signin-link.com" target="_blank">Open Sign In</a>
-    </div>
-  </div>
-</div>
-
-  </section>  <section id="projects">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <h2>Projects</h2>
-          <p class="lead">Each card can hold the weekly position plus direct links into that project’s snapshot, induction and sign in page.</p>
+        <div class="kpi">
+          <div class="kpi-label">At Risk</div>
+          <div class="kpi-value" id="kpi-risk">0</div>
+          <div class="kpi-note">Monitor closely this week</div>
         </div>
-      </div><div class="project-grid" id="projects-container"></div>
-</div>
-
-  </section>  <section>
-    <div class="wrap">
-      <div class="bottom-grid">
-        <div class="note-card">
-          <h3>How to use this page</h3>
-          <p>Use this as the master landing page from your QR codes, email footers or internal shortcuts. Keep people one tap away from the right page.</p>
-          <div class="steps">
-            <div class="step"><strong>Office:</strong> open Weekly Snapshot first for the signal.</div>
-            <div class="step"><strong>Workers:</strong> complete induction before starting work.</div>
-            <div class="step"><strong>Site access:</strong> use sign in and sign out for daily movement.</div>
-            <div class="step"><strong>Projects:</strong> open the right card for job-specific links.</div>
-          </div>
-        </div><div class="note-card">
-      <h3>Set up notes</h3>
-      <p>Replace the placeholder links with your real forms.app links, GitHub Pages links or project pages.</p>
-      <p class="footer-note">This file already reads from <strong>data.js</strong>, so once the layout is live you mainly update project data, not the design.</p>
+        <div class="kpi">
+          <div class="kpi-label">Behind</div>
+          <div class="kpi-value" id="kpi-behind">0</div>
+          <div class="kpi-note">Jobs needing action now</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Blind Spots</div>
+          <div class="kpi-value" id="kpi-unknown">0</div>
+          <div class="kpi-note">Weak data or unclear position</div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </header>
 
-  </section>  <script src="data.js"></script>  <script>
+  <section id="site-tools">
+    <div class="wrap">
+      <h2>Main site tools</h2>
+      <p class="lead">These are the main entry points for office, supervisors, workers and visitors.</p>
+
+      <div class="top-links">
+        <div class="tool-card">
+          <div class="tool-badge">Reporting</div>
+          <h3>Weekly Snapshot</h3>
+          <p>Open the main reporting page to see what is on track, what is drifting and where action is needed.</p>
+          <a class="btn btn-primary" href="https://example.com" target="_blank" rel="noopener">Open Snapshot</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-badge">Compliance</div>
+          <h3>Site Induction</h3>
+          <p>Send workers and visitors through one clean induction flow before they enter site or start work.</p>
+          <a class="btn btn-primary" href="https://example.com" target="_blank" rel="noopener">Start Induction</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-badge">Attendance</div>
+          <h3>Site Sign In</h3>
+          <p>Fast sign in access for headcount, movement records and daily site visibility.</p>
+          <a class="btn btn-primary" href="https://example.com" target="_blank" rel="noopener">Open Sign In</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-badge">Attendance</div>
+          <h3>Site Sign Out</h3>
+          <p>Quick sign out access for labour tracking and site movement records.</p>
+          <a class="btn btn-primary" href="https://example.com" target="_blank" rel="noopener">Open Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="lead">Each card holds the weekly position plus direct links into that project’s snapshot, induction, sign in and sign out page.</p>
+      <div class="project-grid" id="projects-container"></div>
+    </div>
+  </section>
+
+  <script src="data.js"></script>
+  <script>
     const container = document.getElementById('projects-container');
 
     function statusClass(status) {
@@ -526,7 +448,7 @@ h2 {
       let behind = 0;
       let unknown = 0;
 
-      projects.forEach(p => {
+      projects.forEach((p) => {
         const s = (p.status || '').toLowerCase();
         if (s.includes('behind') || s.includes('delay') || s.includes('critical')) behind += 1;
         else if (s.includes('risk') || s.includes('monitor')) risk += 1;
@@ -536,14 +458,14 @@ h2 {
       return { total: projects.length, risk, behind, unknown };
     }
 
-    if (container && typeof projects !== 'undefined') {
+    if (container && Array.isArray(projects)) {
       const kpis = counts(projects);
       document.getElementById('kpi-projects').textContent = kpis.total;
       document.getElementById('kpi-risk').textContent = kpis.risk;
       document.getElementById('kpi-behind').textContent = kpis.behind;
       document.getElementById('kpi-unknown').textContent = kpis.unknown;
 
-      container.innerHTML = projects.map(p => `
+      container.innerHTML = projects.map((p) => `
         <article class="project-card">
           <div class="project-top">
             <div class="project-head">
@@ -551,6 +473,7 @@ h2 {
               <span class="status-badge ${statusClass(p.status)}">${p.status || 'Unknown'}</span>
             </div>
             <p>${p.summary || 'Project summary not added yet.'}</p>
+
             <div class="project-metrics">
               <div class="metric">
                 <div class="metric-label">Holding Up</div>
@@ -570,24 +493,34 @@ h2 {
             </div>
 
             <div class="project-links">
-              <a class="project-link" href="${p.snapshot || '#'}" target="_blank">
+              <a class="project-link" href="${p.snapshot || '#'}" target="_blank" rel="noopener">
                 <div>
                   Snapshot
                   <small>Open project reporting page</small>
                 </div>
                 <span>↗</span>
               </a>
-              <a class="project-link" href="${p.induction || '#'}" target="_blank">
+
+              <a class="project-link" href="${p.induction || '#'}" target="_blank" rel="noopener">
                 <div>
                   Induction
                   <small>Open project induction page</small>
                 </div>
                 <span>↗</span>
               </a>
-              <a class="project-link" href="${p.signin || '#'}" target="_blank">
+
+              <a class="project-link" href="${p.signin || '#'}" target="_blank" rel="noopener">
                 <div>
                   Site Sign In
-                  <small>Open project sign in page</small>
+                  <small>Open project sign in form</small>
+                </div>
+                <span>↗</span>
+              </a>
+
+              <a class="project-link" href="${p.signout || '#'}" target="_blank" rel="noopener">
+                <div>
+                  Site Sign Out
+                  <small>Open project sign out form</small>
                 </div>
                 <span>↗</span>
               </a>
@@ -595,6 +528,9 @@ h2 {
           </div>
         </article>
       `).join('');
+    } else {
+      container.innerHTML = '<div class="tool-card"><h3>No project data loading</h3><p>Check that data.js exists and starts with const projects = [ ... ]</p></div>';
     }
-  </script></body>
+  </script>
+</body>
 </html>
