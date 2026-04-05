@@ -21,6 +21,15 @@
       margin-bottom: 10px;
     }
 
+    .debug {
+      background: #fff3cd;
+      border: 1px solid #ffe69c;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
     .grid {
       display: grid;
       gap: 15px;
@@ -61,15 +70,23 @@
     <h1>Site Hub</h1>
     <p>Induction and Sign In / Out access</p>
 
+    <div class="debug" id="debug">Loading...</div>
+
     <div class="grid grid-3" id="projects"></div>
   </div>
 
-  <script src="data.js"></script>
+  <script src="data.js?v=2"></script>
 
   <script>
     const container = document.getElementById("projects");
+    const debug = document.getElementById("debug");
 
-    if (container && Array.isArray(projects)) {
+    if (typeof projects === "undefined") {
+      debug.innerHTML = "ERROR: data.js is not loading";
+    } else if (!Array.isArray(projects)) {
+      debug.innerHTML = "ERROR: projects is not an array";
+    } else {
+      debug.innerHTML = "Loaded projects: " + projects.length;
       container.innerHTML = projects.map(p => `
         <div class="card">
           <h3>${p.name}</h3>
@@ -83,13 +100,6 @@
           </a>
         </div>
       `).join("");
-    } else {
-      container.innerHTML = `
-        <div class="card">
-          <h3>Data not loading</h3>
-          <p>Check that data.js exists and uses: const projects = [ ... ]</p>
-        </div>
-      `;
     }
   </script>
 </body>
