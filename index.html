@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Control Hub</title>
 
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f4f6f8;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+.hero {
+  background: #111;
+  color: white;
+  padding: 40px 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 16px;
+  background: white;
+  color: #111;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.section {
+  padding: 30px 0;
+}
+
+.grid {
+  display: grid;
+  gap: 15px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.project-card {
+  border-left: 6px solid #ccc;
+}
+
+.status-behind { border-color: red; }
+.status-track { border-color: green; }
+.status-risk { border-color: orange; }
+
+.small {
+  color: #666;
+  font-size: 14px;
+}
+
+.link-btn {
+  display: block;
+  background: #111;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Site Control Hub</h1>
+    <p>One place for snapshots, inductions and site sign in.</p>
+
+    <a class="btn" href="https://your-snapshot-link.com" target="_blank">Weekly Snapshot</a>
+    <a class="btn" href="https://your-induction-link.com" target="_blank">Induction</a>
+    <a class="btn" href="https://your-signin-link.com" target="_blank">Site Sign In</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="section">
+    <h2>Projects</h2>
+    <div class="grid grid-3" id="projects-container"></div>
+  </div>
+
+</div>
+
+<script src="data.js"></script>
+
+<script>
+const container = document.getElementById("projects-container");
+
+function getStatusClass(status) {
+  status = status.toLowerCase();
+  if (status.includes("behind")) return "status-behind";
+  if (status.includes("track")) return "status-track";
+  if (status.includes("risk")) return "status-risk";
+  return "";
+}
+
+if (container && typeof projects !== "undefined") {
+  container.innerHTML = projects.map(p => `
+    <div class="card project-card ${getStatusClass(p.status)}">
+      <h3>${p.name}</h3>
+      <div class="small">
+        Status: ${p.status}<br>
+        Holding: ${p.holding}<br>
+        Labour: ${p.labour}
+      </div>
+
+      <div style="margin-top:10px;">
+        <strong>Next:</strong> ${p.next}
+      </div>
+
+      <a class="link-btn" href="${p.snapshot || '#'}" target="_blank">Open Snapshot</a>
+      <a class="link-btn" href="${p.induction || '#'}" target="_blank">Induction</a>
+      <a class="link-btn" href="${p.signin || '#'}" target="_blank">Sign In</a>
+    </div>
+  `).join("");
+}
+</script>
+
+</body>
+</html>
