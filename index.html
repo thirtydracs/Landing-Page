@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Site Hub</title>
@@ -7,9 +7,14 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       background: #f4f6f8;
       padding: 20px;
+    }
+
+    .wrap {
+      max-width: 1000px;
+      margin: auto;
     }
 
     h1 {
@@ -29,6 +34,7 @@
       background: white;
       padding: 18px;
       border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     .btn {
@@ -42,40 +48,49 @@
       border-radius: 8px;
     }
 
-    @media(max-width:800px){
-      .grid-3 { grid-template-columns: 1fr; }
+    @media (max-width: 800px) {
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <h1>Site Hub</h1>
+    <p>Induction and Sign In / Out access</p>
 
-<h1>Site Hub</h1>
-<p>Induction and Sign In / Out access</p>
+    <div class="grid grid-3" id="projects"></div>
+  </div>
 
-<div class="grid grid-3" id="projects"></div>
+  <script src="data.js"></script>
 
-<script src="data.js"></script>
+  <script>
+    const container = document.getElementById("projects");
 
-<script>
-const container = document.getElementById("projects");
+    if (container && Array.isArray(projects)) {
+      container.innerHTML = projects.map(p => `
+        <div class="card">
+          <h3>${p.name}</h3>
 
-if (container && typeof projects !== "undefined") {
-  container.innerHTML = projects.map(p => `
-    <div class="card">
-      <h3>${p.name}</h3>
+          <a class="btn" href="${p.induction}" target="_blank" rel="noopener">
+            Site Induction
+          </a>
 
-      <a class="btn" href="${p.induction}" target="_blank">
-        Site Induction
-      </a>
-
-      <a class="btn" href="${p.signin}" target="_blank">
-        Site Sign In / Out
-      </a>
-    </div>
-  `).join("");
-}
-</script>
-
+          <a class="btn" href="${p.signin}" target="_blank" rel="noopener">
+            Site Sign In / Out
+          </a>
+        </div>
+      `).join("");
+    } else {
+      container.innerHTML = `
+        <div class="card">
+          <h3>Data not loading</h3>
+          <p>Check that data.js exists and uses: const projects = [ ... ]</p>
+        </div>
+      `;
+    }
+  </script>
 </body>
 </html>
