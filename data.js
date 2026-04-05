@@ -7,7 +7,7 @@ const projects = [
     labour: "Adequate (PGE Civil & Plumbing performing)",
     next: "Replace/manage contractor, resolve stockpile, confirm slab programme",
     snapshot: "https://your-snapshot-link.com",
-    induction: "https://your-induction-link.com",
+    induction: "https://show.forms.app/thirtydracs/construction-site-sign-out-caltex",
     signin: "https://show.forms.app/thirtydracs/construction-site-sign-out-caltex"
   },
   {
@@ -18,8 +18,8 @@ const projects = [
     labour: "Insufficient (single operator)",
     next: "Lock concreter, increase crew, confirm slab readiness",
     snapshot: "https://your-snapshot-link.com",
-    induction: "https://your-induction-link.com",
-    signin: "https://your-signin-link.com"
+    induction: "https://show.forms.app/thirtydracs/construction-site-sign-out-caltex",
+    signin: "https://show.forms.app/thirtydracs/construction-site-sign-out-caltex"
   },
   {
     name: "EXUS Williamstown",
@@ -29,7 +29,7 @@ const projects = [
     labour: "Active trades onsite",
     next: "Complete logs and confirm programme position",
     snapshot: "https://your-snapshot-link.com",
-    induction: "https://your-induction-link.com",
-    signin: "https://your-signin-link.com"
+    induction: "https://show.forms.app/thirtydracs/construction-site-sign-out-caltex",
+    signin: "https://show.forms.app/thirtydracs/construction-site-sign-out-caltex"
   }
 ];
